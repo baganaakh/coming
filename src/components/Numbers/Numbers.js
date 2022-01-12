@@ -75,7 +75,6 @@ const Numbers = () => {
                 i === 1 && !isMd ? `1px solid ${theme.palette.divider}` : 0
               }
             >
-              {console.log("-> item", item)}
               <CardContent>
                 <Typography align="center" variant="h4" gutterBottom>
                   <Box fontWeight={600}>
@@ -85,8 +84,7 @@ const Numbers = () => {
                     >
                       <CountUp
                         redraw={false}
-                        end={viewPortEntered ? item.descr : 0}
-                        start={0}
+                        end={item.descr}
                         suffix={'+'}
                       />
                     </VisibilitySensor>
