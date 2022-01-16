@@ -7,7 +7,6 @@ import { Work, Headline, Numbers, Story, Partners, Team, Features } from './comp
 import apiService from 'api/apiService'
 
 const About = () => {
-  const theme = useTheme();
   const [isLoading, setLoading] = useState(true);
   const [about, setAbout] = useState([]);
 
@@ -18,7 +17,7 @@ const About = () => {
 
   const getData = async () => {
     try {
-      let res = await apiService.find('abouts');
+      let res = await apiService.find('about');
                 
         // let has_com_headline = res.filter(el => el.article.includes('slogan'));
         // let has_com_about = res.filter(el => el.article.includes('about', 'mission', 'vision', 'strategy'));

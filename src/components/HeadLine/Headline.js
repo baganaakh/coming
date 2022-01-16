@@ -16,12 +16,9 @@ import backgrrr from './242156633_649695046407375_3544299606577741989_n_2_aa28fb
 
 const Headline = ({items}) => {
   const theme = useTheme()
-  const [current, setCurrent] = useState(0)
   const [mail, setMail] = useState('')
   const [error, setError] = useState(false)
   const [open, setOpen] = useState(false)
-  const length = items && items[0] && items[0].cover ? items[0].cover.length : 0
-
 
   const isXs = useMediaQuery(theme.breakpoints.up('xs'), {
     defaultMatches: true,
@@ -43,18 +40,6 @@ const Headline = ({items}) => {
     slidesToScroll: 1,
     arrows: false,
     autoplay: true,
-  }
-
-  const nextSlide = () => {
-    setCurrent(current === length - 1 ? 0 : current + 1)
-  }
-
-  const prevSlide = () => {
-    setCurrent(current === length - 1 ? 0 : current - 1)
-  }
-
-  if (!Array.isArray(items && items[0] && items[0].cover) || items && items[0] && items[0].cover.length <= 0) {
-    return null
   }
 
   const handleSend = () => {
@@ -81,7 +66,7 @@ const Headline = ({items}) => {
         zIndex: '10',
         cursor: 'pointer',
         userSelect: 'none'
-      }} onClick={prevSlide}/>
+      }}/>
       <FaArrowAltCircleRight style={{
         position: 'absolute',
         top: '50%',
@@ -91,7 +76,7 @@ const Headline = ({items}) => {
         zIndex: '10',
         cursor: 'pointer',
         userSelect: 'none'
-      }} onClick={nextSlide}/>
+      }}/>
       <Slider {...sliderOpts}>
         <Box paddingX={2}>
           <Box
